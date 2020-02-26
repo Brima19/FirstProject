@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/mainpage">Home</a>
+        <a href="/logout">Logout</a>
+    </div>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+        <li>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+        {% endif %}
+    <h1>Add a Trip</h1>
+    <form action="/taveladd" method="post">
+        {%csrf_token%}
+        <p>Destination: <input type="text" name="dest" id=""></p>
+        <p>Description: <input type="text" name="des" id=""></p>
+        <p>Travel Date From: <input type="date" name="tdf" id=""></p>
+        <p>Travel Date To: <input type="date" name="tdt" id=""></p>
+        <p><input type="submit" value="Add"></p>
+    </form>
+</body>
+</html>
